@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.control-buttons {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(46, 179, 202, .9);
+}
+
+.control-buttons span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    border-radius: 6px;
+    background-color: rgb(253, 78, 78);
+    color: white;
+    cursor: pointer;
+}
+
+.info-container {
+    width: 1080px;
+    margin: 20px auto;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid rgb(46, 179, 202);
+}
+
+.memory-game-block {
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+}
+
+.memory-game-block .game-block {
+    height: 200px;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    flex: 1 0 200px;
+    transition: transform 0.5s;
+    transition-timing-function: ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(86 229 255);
+    border-radius: 6px;
+}
+
+.memory-game-block .game-block .front {
+    line-height: 200px;
+    background-color: rgb(8, 108, 126);
+}
+
+.memory-game-block .game-block .front::before {
+    content: '?';
+    font-size: 140px;
+    color: white;
+}
+
+.memory-game-block .game-block .back {
+    background-color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-game-block .game-block .back i {
+    color: white;
+}
+
+.memory-game-block .game-block .face {
+    position: absolute;
+    text-align: center;
+    backface-visibility: hidden;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.no-clicking {
+    pointer-events: none;
+}
+
+.is-flipped,
+.has-matched {
+    transform: rotateY(180deg);
+}
